@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head><title>Add!</title></head>
+<body>
+<script type="module">
+  let cachedModule = new Promise(async (resolve) => {
+    const response = await fetch('./adder-optimized.wasm')
+    const bytes = await response.arrayBuffer()
+    resolve(WebAssembly.compile(bytes))
+  })
+
+  async function add(a, b) {
+    const module = await cachedModule
+    const instance = await WebAssembly.instantiate(module)
+    console.debug(instance.exports.add(a, b))
+  }
+
+  // do a couple examples:
+  add(25, 5)
+  add(2, 3)
+
+  // now make globally available for the console
+  window.add = add
+</script>
+</body>
+</html>
