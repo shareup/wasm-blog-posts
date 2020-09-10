@@ -23,6 +23,20 @@ $ npx serve
 
 Then you can visit <https://localhost:5000/test.html> and open the console.
 
+## reverse example
+
+Checkout:
+
+* [`reverse.c`](/reverse/reverse.c)
+* [`reverse.ts`](/reverse/reverse.ts)
+
+Run the deno script:
+
+```sh
+$ cd reverse
+$ ./reverse.sh does this work?
+```
+
 ## Setup Instructions
 
 ### Download the WASI SDK
